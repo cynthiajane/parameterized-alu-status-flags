@@ -6,7 +6,7 @@ ADD and SUB operations using combinational logic.
 ## Features
 - Parameterized bit-width
 - always_comb usage
-- Clean testbench
+- Testbench
 - Waveform-based verification
 
 ## Tools
@@ -14,4 +14,10 @@ ADD and SUB operations using combinational logic.
 - EDA Playground (simulation)
 - EPWave (waveform viewing)
 
-This project is part of my learning journey in digital design.
+## Verification
+The testbench validates:
+- Arithmetic operations (ADD, SUB)
+- Logical operations (AND, OR, XOR, NOT)
+- Shift operations
+- Status flags: Zero (Z), Carry (C), Overflow (V), Negative (N)
+
