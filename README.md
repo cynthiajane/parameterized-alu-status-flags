@@ -1,23 +1,47 @@
-# Simple Parameterized ALU (Verilog)
+# Parameterized ALU with Status Flags (Verilog)
 
-This project implements a simple parameterized ALU supporting
-ADD and SUB operations using combinational logic.
+## Overview
+This project implements a parameterized Arithmetic Logic Unit (ALU) in Verilog.
+
+The ALU supports multiple arithmetic and logical operations selected using a 3-bit control signal. It also generates basic status flags:
+
+- Zero Flag (Z)
+- Negative Flag (N)
+
+The design is parameterized, allowing the data width to be changed easily without modifying the core logic.
+
+---
 
 ## Features
-- Parameterized bit-width
-- always_comb usage
-- Testbench
-- Waveform-based verification
 
-## Tools
-- Verilog
-- EDA Playground (simulation)
-- EPWave (waveform viewing)
+### Operations Supported
 
-## Verification
-The testbench validates:
-- Arithmetic operations (ADD, SUB)
-- Logical operations (AND, OR, XOR, NOT)
-- Shift operations
-- Status flags: Zero (Z), Carry (C), Overflow (V), Negative (N)
+| Select | Operation |
+|----------|----------|
+| 000 | Addition (A + B) |
+| 001 | Subtraction (A - B) |
+| 010 | Bitwise AND |
+| 011 | Bitwise OR |
+| 100 | Bitwise XOR |
+| 101 | Bitwise NOT (~A) |
+| 110 | Greater Than (A > B) |
+| 111 | Clear Output |
 
+---
+
+## Status Flags
+
+### Zero Flag (Z)
+Set to 1 when the output is zero.
+
+### Negative Flag (N)
+Represents the MSB (Most Significant Bit) of the output.
+
+---
+
+## Parameterization
+
+Default width:
+
+```verilog
+parameter n = 4;
